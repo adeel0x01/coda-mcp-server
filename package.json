@@ -22,6 +22,14 @@
   ],
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adeel0x01/coda-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adeel0x01/coda-mcp-server/issues"
+  },
+  "homepage": "https://github.com/adeel0x01/coda-mcp-server#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
     "zod": "^3.25.0",
