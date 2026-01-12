@@ -146,18 +146,3 @@ export interface CodaMutationResponse {
   addedRowIds?: string[];
   rowIds?: string[];
 }
-
-export interface CodaWhoAmI {
-  name: string;
-  loginId: string;
-  type: string;
-  scoped: boolean;
-  tokenName: string;
-  href: string;
-  workspace?: {
-    id: string;
-    type: string;
-    organizationId: string;
-    browserLink: string;
-  };
-}

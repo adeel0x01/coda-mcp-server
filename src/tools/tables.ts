@@ -1,6 +1,6 @@
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import { CodaClient } from '../api/client.js';
-import { ListTablesSchema, GetTableSchema, CreateTableSchema } from '../schemas/tables.js';
+import { ListTablesSchema, GetTableSchema } from '../schemas/tables.js';
 import { logger } from '../utils/logger.js';
 
 export function createTableTools(client: CodaClient) {
@@ -93,62 +93,6 @@ export function createTableTools(client: CodaClient) {
             },
           },
           required: ['docId', 'tableIdOrName'],
-        },
-      } as Tool,
-    },
-
-    create_table: {
-      handler: async (args: any) => {
-        try {
-          const params = CreateTableSchema.parse(args);
-          logger.debug('Creating table', params);
-          const { docId, ...createParams } = params;
-          const result = await client.createTable(docId, createParams);
-          return {
-            content: [{
-              type: 'text' as const,
-              text: JSON.stringify(result, null, 2),
-            }],
-          };
-        } catch (error: any) {
-          logger.error('Error creating table', { error: error.message });
-          return {
-            content: [{
-              type: 'text' as const,
-              text: `Error: ${error.message}`,
-            }],
-            isError: true,
-          };
-        }
-      },
-      definition: {
-        name: 'coda_create_table',
-        description: 'Create a new table in a Coda document. Note: API support for table creation may be limited.',
-        inputSchema: {
-          type: 'object',
-          properties: {
-            docId: {
-              type: 'string',
-              description: 'Document ID',
-            },
-            name: {
-              type: 'string',
-              description: 'Table name',
-            },
-            columns: {
-              type: 'array',
-              items: {
-                type: 'object',
-                properties: {
-                  name: { type: 'string' },
-                  type: { type: 'string' },
-                },
-                required: ['name'],
-              },
-              description: 'Initial columns for the table',
-            },
-          },
-          required: ['docId', 'name', 'columns'],
         },
       } as Tool,
     },

@@ -8,7 +8,6 @@ import type {
   CodaRow,
   CodaListResponse,
   CodaMutationResponse,
-  CodaWhoAmI,
 } from "./types.js";
 
 /**
@@ -137,15 +136,6 @@ export class CodaClient {
     }
 
     throw createErrorFromResponse(response.status, errorMessage, response);
-  }
-
-  // ========== Utility Methods ==========
-
-  /**
-   * Test API connection and get current user info
-   */
-  async whoami(): Promise<CodaWhoAmI> {
-    return this.request<CodaWhoAmI>("GET", "/whoami");
   }
 
   // ========== Document Operations ==========
@@ -304,17 +294,6 @@ export class CodaClient {
       "GET",
       `/docs/${docId}/tables/${tableIdOrName}`
     );
-  }
-
-  // Note: Table creation via API is limited - requires page context
-  async createTable(
-    docId: string,
-    params: {
-      name: string;
-      columns: { name: string; type?: string }[];
-    }
-  ): Promise<CodaTable> {
-    return this.request<CodaTable>("POST", `/docs/${docId}/tables`, params);
   }
 
   // ========== Column Operations ==========
