@@ -209,7 +209,7 @@ export class CodaClient {
       subtitle?: string;
       iconName?: string;
       imageUrl?: string;
-      parentPageIdOrName?: string;
+      parentPageId?: string;
       pageContent?: {
         type?: "canvas";
         canvasContent: {

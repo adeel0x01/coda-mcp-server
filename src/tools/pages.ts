@@ -167,9 +167,9 @@ export function createPageTools(client: CodaClient) {
               type: "string",
               description: "Header image URL",
             },
-            parentPageIdOrName: {
+            parentPageId: {
               type: "string",
-              description: "Parent page ID or name for creating subpages",
+              description: "Parent page ID for creating subpages",
             },
             pageContent: {
               type: "object",

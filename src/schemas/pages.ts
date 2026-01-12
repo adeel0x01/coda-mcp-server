@@ -48,10 +48,10 @@ export const CreatePageSchema = z.object({
   subtitle: z.string().optional().describe("Page subtitle"),
   iconName: z.string().optional().describe("Icon name for the page"),
   imageUrl: z.string().optional().describe("Header image URL"),
-  parentPageIdOrName: z
+  parentPageId: z
     .string()
     .optional()
-    .describe("Parent page ID or name for creating subpages"),
+    .describe("Parent page ID for creating subpages"),
   pageContent: PageContentSchema.optional().describe("Initial page content"),
 });
 
