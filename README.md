@@ -4,7 +4,7 @@ A Model Context Protocol (MCP) server for integrating with the Coda API. Provide
 
 ## Features
 
-- **23 MCP Tools** for complete Coda API coverage
+- **22 MCP Tools** for complete Coda API coverage
 - Document, page, table, column, and row operations
 - Built-in rate limiting and async operation handling
 - Full TypeScript support with Zod validation
@@ -46,7 +46,7 @@ Replace `your_api_token_here` with the token you generated.
 - `coda_create_doc` - Create a new document
 - `coda_delete_doc` - Delete a document
 
-### Pages (6 tools)
+### Pages (7 tools)
 
 - `coda_list_pages` - List pages in a document
 - `coda_get_page` - Get page details
@@ -56,11 +56,10 @@ Replace `your_api_token_here` with the token you generated.
 - `coda_get_page_content` - Get structured page content elements
 - `coda_delete_page_content` - Delete page content (all or specific elements)
 
-### Tables (3 tools)
+### Tables (2 tools)
 
 - `coda_list_tables` - List tables in a document
 - `coda_get_table` - Get table details
-- `coda_create_table` - Create a new table
 
 ### Columns (2 tools)
 
